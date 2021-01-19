@@ -1,0 +1,8 @@
+<div>
+  <label><strong>Patient</strong></label>
+  <div>
+    {{ patient.name }} {{patient.surname}} ({{patient.kind}})
+    <p><u>Birthday</u> {{patient.birthday | date}} ({{calculateDiff(patient.birthday)}} years old)</p>
+  </div>
+
+</div>

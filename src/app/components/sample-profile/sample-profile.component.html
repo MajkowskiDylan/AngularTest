@@ -1,0 +1,16 @@
+
+  <div *ngIf="sample">
+    <h4>Sample</h4>
+    <div>
+      <label><strong>Title:</strong></label> {{ sample.title }}
+    </div>
+    <div>
+      <label><strong>Date de prélèvement:</strong></label>
+      {{ sample.datePrelevement | date }} at {{ sample.datePrelevement | date: ('hh:mm') }}
+    </div>
+    <div>
+      <label><strong>Type de prélèvement:</strong></label>
+      {{ sample.typePrelevement }}
+    </div>
+<app-patient-profile [patient]="patient"></app-patient-profile>
+  </div>

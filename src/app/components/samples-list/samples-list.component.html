@@ -1,0 +1,42 @@
+<div class="list row">
+  <div class="col-md-8">
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search by title"
+        [(ngModel)]="title"
+      />
+      <div class="input-group-append">
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="searchTitle()"
+        >
+          Search
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <h4>Samples List</h4>
+    <div *ngIf="samples.length">Click on a sample to display its data.</div>
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let sample of samples; let i = index"
+        [class.active]="i == currentIndex"
+        (click)="setActiveSample(sample, i)"
+      >
+        {{ sample.title }}
+      </li>
+    </ul>
+    <div *ngIf="samples.length == 0">Please, add a sample</div>
+    <button *ngIf="!samples" class="m-3 btn btn-sm btn-danger" (click)="removeAllSamples()">
+      Remove All
+    </button>
+  </div>
+  <div class="col-md-6">
+  <app-sample-profile [sample]="currentSample" [patient]="currentPatient"></app-sample-profile>
+</div>
+</div>
