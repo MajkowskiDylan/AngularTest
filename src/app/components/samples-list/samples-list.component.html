@@ -20,7 +20,7 @@
   </div>
   <div class="col-md-6">
     <h4>Samples List</h4>
-    <div *ngIf="samples.length">Click on a sample to display its data.</div>
+    <div *ngIf="samples?.length">Click on a sample to display its data.</div>
     <ul class="list-group">
       <li
         class="list-group-item"
@@ -31,8 +31,8 @@
         {{ sample.title }}
       </li>
     </ul>
-    <div *ngIf="samples.length == 0">Please, add a sample</div>
-    <button *ngIf="!samples" class="m-3 btn btn-sm btn-danger" (click)="removeAllSamples()">
+    <div *ngIf="samples?.length < 1">Please, add a sample</div>
+    <button *ngIf="samples?.length > 0" class="m-3 btn btn-sm btn-danger" (click)="removeAllSamples()">
       Remove All
     </button>
   </div>

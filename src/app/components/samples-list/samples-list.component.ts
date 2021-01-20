@@ -64,6 +64,7 @@ export class SamplesListComponent implements OnInit {
   }
 
   retrieveFreezers(): void {
+    // A automatiser (fichier mock).
     const freezerA: Freezer = {
       temperature: 38
     };
@@ -91,6 +92,7 @@ export class SamplesListComponent implements OnInit {
   }
 
   retrieveDrawers(): void {
+    // A automatiser.
     const drawerA: Drawer = {
       freezerId: 1,
       busy: false
@@ -102,7 +104,7 @@ export class SamplesListComponent implements OnInit {
 
     const drawerC: Drawer = {
       freezerId: 1,
-      busy: false
+      busy: true
     };
 
     const drawerD: Drawer = {
@@ -118,6 +120,8 @@ export class SamplesListComponent implements OnInit {
           {
             this.saveDrawer(drawerA);
             this.saveDrawer(drawerB);
+            this.saveDrawer(drawerC);
+            this.saveDrawer(drawerD);
           }
 
           console.log(data);

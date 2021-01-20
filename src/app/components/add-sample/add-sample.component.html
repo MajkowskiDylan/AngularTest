@@ -1,6 +1,5 @@
 <div>
   <div class="submit-form">
-
     <div *ngIf="!submitted">
       <div class="form-group">
         <label for="title">Titre de l'échantillon</label>
@@ -34,7 +33,7 @@
       </div>
 
       <div class="form-group">
-        <label for="patientId">Patient ({{patients.length}})</label>
+        <label for="patientId">Patient ({{patients?.length}})</label>
         <select class="form-control" id="patientId" name="patientId" [(ngModel)]="sample.patientId">
           <option value="0"></option>
           <option *ngFor="let patient of this.patients" value="{{patient.id}}">
@@ -44,17 +43,17 @@
       </div>
 
       <div class="form-group">
-        <label for="freezerId">Congélateur ({{freezers.length}})</label>
+        <label for="freezerId">Congélateur ({{freezers?.length}})</label>
         <select class="form-control" id="freezerId" name="freezerId" (ngModelChange)="retrieveDrawers($event)" [(ngModel)]="selectedFreezer">
           <option value="0"></option>
           <option *ngFor="let freezer of this.freezers" value="{{freezer.id}}">
-            Congélateur #{{freezer.id}}
+            Congélateur #{{freezer.id}} à -{{freezer.temperature}}°C
           </option>
         </select>
       </div>
 
       <div class="form-group" *ngIf="selectedFreezer > 0 && selectedFreezer != undefined">
-        <label for="drawerId"> Emplacement (selon disponibilité: {{drawers.length}})</label>
+        <label for="drawerId"> Emplacement (selon disponibilité: {{drawers?.length}})</label>
         <select class="form-control" id="drawerId" name="drawerId" [(ngModel)]="sample.drawerId">
           <option value="0"></option>
           <option *ngFor="let drawer of this.drawers" value="{{drawer.id}}">
@@ -70,7 +69,6 @@
 
     <div *ngIf="submitted">
       <h4>Sample was submitted successfully!</h4>
-      <!--<button class="btn btn-success" (click)="newSample()">Add another</button>-->
     </div>
     <div *ngIf="!submitted">
       Renseignez tous les champs afin de soumettre le formulaire.
